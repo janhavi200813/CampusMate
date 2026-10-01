@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Assignments - CampusMate</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+
+        <div class="logo">CampusMate</div>
+
+        <nav>
+            <a href="index.html">Dashboard</a>
+            <a href="timetable.html">Timetable</a>
+            <a href="assignments.html">Assignments</a>
+            <a href="#">Notes</a>
+            <a href="#">Goals</a>
+        </nav>
+
+        <div class="profile">J</div>
+
+    </header>
+
+
+    <main>
+
+        <section class="welcome assignment-heading">
+
+            <div>
+                <p class="small-text">STAY ON TRACK</p>
+
+                <h1>Assignments 📝</h1>
+
+                <p>
+                    Keep track of your college work and deadlines.
+                </p>
+            </div>
+
+            <button class="add-button" onclick="showForm()">+ Add Assignment</button>
+
+        </section>
+          
+         <div id="assignment-form" class="assignment-form">
+
+    <h2>Add New Assignment</h2>
+
+    <input type="text" id="subject" placeholder="Subject">
+
+    <input type="text" id="title" placeholder="Assignment title">
+
+    <input type="date" id="due-date">
+
+    <div>
+        <button onclick="addAssignment()" class="save-button">
+            Add Assignment
+        </button>
+
+        <button onclick="hideForm()" class="cancel-button">
+            Cancel
+        </button>
+    </div>
+
+</div>
+
+
+        <section class="assignment-list">
+
+            <!-- Assignment 1 -->
+
+            <div class="assignment-card">
+
+                <div class="assignment-info">
+
+                    <span class="assignment-status pending">
+                        ● Pending
+                    </span>
+
+                    <h2>HTML & CSS Assignment</h2>
+
+                    <p class="subject">
+                        Web Technology
+                    </p>
+
+                </div>
+
+                <div class="assignment-actions">
+
+                    <span class="deadline">
+                        Due Tomorrow
+                    </span>
+
+                    <button class="complete-button">
+                        Mark Complete
+                    </button>
+
+                    <button class="delete-button">
+                        Delete
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Assignment 2 -->
+
+            <div class="assignment-card">
+
+                <div class="assignment-info">
+
+                    <span class="assignment-status pending">
+                        ● Pending
+                    </span>
+
+                    <h2>Set Theory Questions</h2>
+
+                    <p class="subject">
+                        Discrete Mathematics
+                    </p>
+
+                </div>
+
+                <div class="assignment-actions">
+
+                    <span class="deadline">
+                        Due in 3 days
+                    </span>
+
+                    <button class="complete-button">
+                        Mark Complete
+                    </button>
+
+                    <button class="delete-button">
+                        Delete
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Assignment 3 -->
+
+            <div class="assignment-card">
+
+                <div class="assignment-info">
+
+                    <span class="assignment-status pending">
+                        ● Pending
+                    </span>
+
+                    <h2>C Programming Assignment</h2>
+
+                    <p class="subject">
+                        Computer Programming
+                    </p>
+
+                </div>
+
+                <div class="assignment-actions">
+
+                    <span class="deadline">
+                        Due in 5 days
+                    </span>
+
+                    <button class="complete-button">
+                        Mark Complete
+                    </button>
+
+                    <button class="delete-button">
+                        Delete
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="assignment-summary">
+
+            <div>
+                <strong>3</strong>
+                <span>Pending</span>
+            </div>
+
+            <div>
+                <strong>0</strong>
+                <span>Completed</span>
+            </div>
+
+        </section>
+
+    </main>
+
+     <script>
+
+    function showForm() {
+        document.getElementById("assignment-form").style.display = "block";
+    }
+
+
+    function hideForm() {
+        document.getElementById("assignment-form").style.display = "none";
+    }
+
+
+    function addAssignment() {
+
+        // Get information from the form
+        let subject = document.getElementById("subject").value;
+        let title = document.getElementById("title").value;
+        let dueDate = document.getElementById("due-date").value;
+
+
+        // Check if everything is filled in
+        if (subject === "" || title === "" || dueDate === "") {
+            alert("Please fill in all the fields.");
+            return;
+        }
+
+
+        // Create a new assignment
+        let newAssignment = document.createElement("div");
+
+        newAssignment.className = "assignment-card";
+
+
+        newAssignment.innerHTML = `
+            <div class="assignment-info">
+
+                <span class="assignment-status pending">
+                    ● Pending
+                </span>
+
+                <h2>${title}</h2>
+
+                <p class="subject">
+                    ${subject}
+                </p>
+
+            </div>
+
+
+            <div class="assignment-actions">
+
+                <span class="deadline">
+                    Due ${dueDate}
+                </span>
+
+                <button class="complete-button">
+                    Mark Complete
+                </button>
+
+                <button class="delete-button">
+                    Delete
+                </button>
+
+            </div>
+        `;
+
+
+        // Put the new assignment on the page
+        document
+            .querySelector(".assignment-list")
+            .appendChild(newAssignment);
+
+
+        // Clear the form
+        document.getElementById("subject").value = "";
+        document.getElementById("title").value = "";
+        document.getElementById("due-date").value = "";
+
+
+        // Hide the form
+        hideForm();
+
+    }
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,450 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f6fa;
+    color: #202124;
+}
+
+header {
+    height: 70px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 50px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #555;
+    font-size: 15px;
+}
+
+nav a:hover {
+    color: #111;
+}
+
+.profile {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #222;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+main {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 25px;
+}
+
+.welcome {
+    margin-bottom: 30px;
+}
+
+.small-text {
+    font-size: 12px;
+    font-weight: bold;
+    color: #777;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.welcome h1 {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.welcome p {
+    color: #777;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.stat-card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid #e8e8e8;
+}
+
+.stat-card span {
+    font-size: 25px;
+}
+
+.stat-card h3 {
+    font-size: 28px;
+    margin-top: 15px;
+}
+
+.stat-card p {
+    color: #777;
+    margin-top: 5px;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.card {
+    background: white;
+    border: 1px solid #e8e8e8;
+    border-radius: 15px;
+    padding: 25px;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.card-header h2 {
+    font-size: 19px;
+}
+
+.card-header a {
+    font-size: 13px;
+    color: #666;
+    text-decoration: none;
+}
+
+.class-item {
+    display: flex;
+    gap: 20px;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.class-item:last-child {
+    border-bottom: none;
+}
+
+.time {
+    width: 75px;
+    font-size: 13px;
+    color: #777;
+}
+
+.class-item h3 {
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.class-item p {
+    font-size: 13px;
+    color: #888;
+}
+
+.assignment {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.assignment:last-child {
+    border-bottom: none;
+}
+
+.assignment h3 {
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.assignment p {
+    font-size: 13px;
+    color: #888;
+}
+
+.due {
+    font-size: 12px;
+    background: #f1f1f1;
+    padding: 6px 10px;
+    border-radius: 20px;
+}
+
+.goals {
+    margin-top: 25px;
+}
+
+.goal {
+    padding: 13px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.goal:last-child {
+    border-bottom: none;
+}
+
+.goal input {
+    margin-right: 10px;
+}
+
+/* Weekly Timetable */
+
+.weekly-timetable {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+}
+
+.day-column {
+    background: white;
+    border: 1px solid #e8e8e8;
+    border-radius: 15px;
+    padding: 15px;
+    min-height: 400px;
+}
+
+.day-header {
+    font-size: 17px;
+    font-weight: bold;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.class-card {
+    background: #f7f7f7;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 12px;
+}
+
+.class-time {
+    font-size: 11px;
+    color: #777;
+    font-weight: bold;
+}
+
+.class-card h3 {
+    font-size: 14px;
+    margin-top: 8px;
+    margin-bottom: 5px;
+}
+
+.class-card p {
+    font-size: 12px;
+    color: #888;
+}
+
+
+/* Make timetable usable on smaller screens */
+
+@media (max-width: 900px) {
+
+    .weekly-timetable {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .weekly-timetable {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* Assignments */
+
+.assignment-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add-button {
+    border: none;
+    background: #202124;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.add-button:hover {
+    background: #444;
+}
+
+.assignment-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.assignment-card {
+    background: white;
+    border: 1px solid #e8e8e8;
+    border-radius: 15px;
+    padding: 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.assignment-status {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.pending {
+    color: #c27c00;
+}
+
+.assignment-info h2 {
+    font-size: 17px;
+    margin-top: 8px;
+    margin-bottom: 5px;
+}
+
+.subject {
+    color: #777;
+    font-size: 13px;
+}
+
+.assignment-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.deadline {
+    font-size: 12px;
+    background: #f2f2f2;
+    padding: 7px 10px;
+    border-radius: 20px;
+}
+
+.complete-button,
+.delete-button {
+    border: none;
+    padding: 8px 12px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.complete-button {
+    background: #eeeeee;
+}
+
+.delete-button {
+    background: #eeeeee;
+}
+
+.complete-button:hover,
+.delete-button:hover {
+    background: #dddddd;
+}
+
+.assignment-summary {
+    display: flex;
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.assignment-summary div {
+    background: white;
+    border: 1px solid #e8e8e8;
+    border-radius: 15px;
+    padding: 20px 30px;
+    min-width: 150px;
+}
+
+.assignment-summary strong {
+    display: block;
+    font-size: 25px;
+}
+
+.assignment-summary span {
+    color: #777;
+    font-size: 13px;
+}
+
+/* Add Assignment Form */
+
+.assignment-form {
+    display: none;
+    background: white;
+    border: 1px solid #e8e8e8;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 20px;
+}
+
+.assignment-form h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.assignment-form input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    margin-bottom: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.save-button,
+.cancel-button {
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.save-button {
+    background: #202124;
+    color: white;
+}
+
+.cancel-button {
+    background: #eeeeee;
+    margin-left: 8px;
+}
+
+.save-button:hover {
+    background: #444;
+}
+
+.cancel-button:hover {
+    background: #dddddd;
+}
