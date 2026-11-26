@@ -9,20 +9,7 @@
 
 <body>
 
-    <header>
-        <div class="logo">CampusMate</div>
-
-        <nav>
-            <a href="index.html">Dashboard</a>
-            <a href="timetable.html">Timetable</a>
-            <a href="assignments.html" class="active">Assignments</a>
-            <a href="notes.html">Notes</a>
-            <a href="goals.html">Goals</a>
-        </nav>
-
-        <div class="profile">J</div>
-    </header>
-
+    <header id="header"></header>
 
     <main>
 
@@ -32,19 +19,35 @@
                 <h1>Assignments 📝</h1>
                 <p>Keep track of your college work and deadlines.</p>
             </div>
-
-            <button class="add-button" onclick="showForm()">+ Add Assignment</button>
+            <button class="add-button" onclick="openAssignmentForm()">+ Add Assignment</button>
         </section>
 
-        <div id="assignment-form" class="assignment-form">
-            <h2>Add New Assignment</h2>
-            <input type="text" id="subject" placeholder="Subject">
-            <input type="text" id="title" placeholder="Assignment title">
+        <div id="assignment-form" class="form-card">
+            <h2 id="form-title">Add New Assignment</h2>
+            <p class="form-error"></p>
+            <label class="label-small" for="subject">Subject</label>
+            <input type="text" id="subject" list="subject-list" placeholder="e.g. Web Technology" autocomplete="off">
+            <datalist id="subject-list"></datalist>
+            <label class="label-small" for="title">Title</label>
+            <input type="text" id="title" placeholder="e.g. HTML & CSS assignment">
+            <label class="label-small" for="due-date">Due date</label>
             <input type="date" id="due-date">
-            <div>
-                <button onclick="addAssignment()" class="save-button">Add Assignment</button>
-                <button onclick="hideForm()" class="cancel-button">Cancel</button>
-            </div>
+            <label class="label-small" for="priority">Priority</label>
+            <select id="priority">
+                <option value="high">High</option>
+                <option value="medium" selected>Medium</option>
+                <option value="low">Low</option>
+            </select>
+            <button class="save-button" id="save-assignment" onclick="saveAssignment()">Add Assignment</button>
+            <button class="cancel-button" onclick="closeAssignmentForm()">Cancel</button>
+        </div>
+
+        <div class="toolbar">
+            <button class="filter-button active" data-filter="all" onclick="setFilter('all')">All</button>
+            <button class="filter-button" data-filter="pending" onclick="setFilter('pending')">Pending</button>
+            <button class="filter-button" data-filter="completed" onclick="setFilter('completed')">Completed</button>
+            <button class="filter-button" data-filter="overdue" onclick="setFilter('overdue')">Overdue</button>
+            <input type="text" class="search-box" placeholder="Search assignments..." aria-label="Search assignments" oninput="setSearch(this.value)">
         </div>
 
         <section class="assignment-list" id="assignment-list"></section>
@@ -63,6 +66,10 @@
     </main>
 
     <script src="script.js"></script>
-    <script>showAssignments();</script>
+    <script>
+        renderHeader("assignments");
+        if (location.hash === "#overdue") { currentFilter = "overdue"; }   // link from the dashboard warning
+        showAssignments();
+    </script>
 </body>
 </html>

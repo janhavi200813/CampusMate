@@ -9,55 +9,39 @@
 
 <body>
 
-    <header>
-        <div class="logo">CampusMate</div>
-
-        <nav>
-            <a href="index.html" class="active">Dashboard</a>
-            <a href="timetable.html">Timetable</a>
-            <a href="assignments.html">Assignments</a>
-            <a href="notes.html">Notes</a>
-            <a href="goals.html">Goals</a>
-        </nav>
-
-        <div class="profile">J</div>
-    </header>
-
+    <header id="header"></header>
 
     <main>
 
         <section class="welcome">
-            <p class="small-text">WELCOME 👋</p>
-            <h1>Welcome back, Janhavi!</h1>
+            <p class="small-text" id="greeting"></p>
+            <h1 id="welcome-name"></h1>
             <p>Here's what's happening with your college life today.</p>
         </section>
 
+        <a class="alert" id="overdue-alert" href="assignments.html#overdue"></a>
+
+        <section class="next-class" id="next-class"></section>
 
         <section class="stats">
-
-            <div class="stat-card">
+            <a class="stat-card" href="timetable.html">
                 <span>📅</span>
                 <h3 id="classes-count">0</h3>
                 <p>Classes Today</p>
-            </div>
-
-            <div class="stat-card">
+            </a>
+            <a class="stat-card" href="assignments.html">
                 <span>📝</span>
                 <h3 id="pending-count">0</h3>
                 <p>Pending Assignments</p>
-            </div>
-
-            <div class="stat-card">
+            </a>
+            <a class="stat-card" href="goals.html">
                 <span>🎯</span>
                 <h3 id="progress-count">0%</h3>
                 <p>Goals Completed</p>
-            </div>
-
+            </a>
         </section>
 
-
         <section class="content">
-
             <div class="card">
                 <div class="card-header">
                     <h2>📅 Today's Classes</h2>
@@ -73,14 +57,16 @@
                 </div>
                 <div id="dash-assignments"></div>
             </div>
-
         </section>
-
 
         <section class="card goals">
             <div class="card-header">
                 <h2>🎯 Goals</h2>
                 <a href="goals.html">Manage goals</a>
+            </div>
+            <div class="add-row">
+                <input type="text" id="dash-goal-input" placeholder="Add a goal and press Enter" aria-label="New goal"
+                       onkeydown="if (event.key === 'Enter') dashAddGoal()">
             </div>
             <div id="dash-goals"></div>
         </section>
@@ -88,6 +74,9 @@
     </main>
 
     <script src="script.js"></script>
-    <script>showDashboard();</script>
+    <script>
+        renderHeader("dashboard");
+        showDashboard();
+    </script>
 </body>
 </html>

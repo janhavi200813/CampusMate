@@ -9,34 +9,48 @@
 
 <body>
 
-    <header>
-        <div class="logo">CampusMate</div>
-
-        <nav>
-            <a href="index.html">Dashboard</a>
-            <a href="timetable.html" class="active">Timetable</a>
-            <a href="assignments.html">Assignments</a>
-            <a href="notes.html">Notes</a>
-            <a href="goals.html">Goals</a>
-        </nav>
-
-        <div class="profile">J</div>
-    </header>
-
+    <header id="header"></header>
 
     <main>
 
-        <section class="welcome">
-            <p class="small-text">YOUR WEEK</p>
-            <h1>Class Timetable 📅</h1>
-            <p>Keep track of your classes throughout the week. Today's column is highlighted.</p>
+        <section class="welcome assignment-heading">
+            <div>
+                <p class="small-text">YOUR WEEK</p>
+                <h1>Class Timetable 📅</h1>
+                <p>Add or remove classes. Today's column is highlighted.</p>
+            </div>
+            <button class="add-button" onclick="toggleForm('class-form', true)">+ Add Class</button>
         </section>
+
+        <div id="class-form" class="form-card">
+            <h2>Add New Class</h2>
+            <p class="form-error"></p>
+            <label class="label-small" for="class-day">Day</label>
+            <select id="class-day">
+                <option>Monday</option>
+                <option>Tuesday</option>
+                <option>Wednesday</option>
+                <option>Thursday</option>
+                <option>Friday</option>
+            </select>
+            <label class="label-small" for="class-time">Start time</label>
+            <input type="time" id="class-time">
+            <label class="label-small" for="class-subject">Subject</label>
+            <input type="text" id="class-subject" placeholder="e.g. Digital Logic">
+            <label class="label-small" for="class-room">Room / Lab</label>
+            <input type="text" id="class-room" placeholder="e.g. Room 202">
+            <button class="save-button" onclick="addClass()">Add Class</button>
+            <button class="cancel-button" onclick="toggleForm('class-form', false)">Cancel</button>
+        </div>
 
         <section class="weekly-timetable" id="timetable"></section>
 
     </main>
 
     <script src="script.js"></script>
-    <script>showTimetable();</script>
+    <script>
+        renderHeader("timetable");
+        showTimetable();
+    </script>
 </body>
 </html>

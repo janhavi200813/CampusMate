@@ -9,20 +9,7 @@
 
 <body>
 
-    <header>
-        <div class="logo">CampusMate</div>
-
-        <nav>
-            <a href="index.html">Dashboard</a>
-            <a href="timetable.html">Timetable</a>
-            <a href="assignments.html">Assignments</a>
-            <a href="notes.html" class="active">Notes</a>
-            <a href="goals.html">Goals</a>
-        </nav>
-
-        <div class="profile">J</div>
-    </header>
-
+    <header id="header"></header>
 
     <main>
 
@@ -32,17 +19,25 @@
             <p>Keep quick study notes in one place.</p>
         </section>
 
-        <section class="card note-form">
-            <input type="text" id="note-title" placeholder="Note title">
-            <textarea id="note-text" placeholder="Write your note here..."></textarea>
+        <section class="card note-form" id="note-form">
+            <p class="form-error"></p>
+            <label class="label-small" for="note-title">Title</label>
+            <input type="text" id="note-title" placeholder="e.g. Set theory formulas">
+            <label class="label-small" for="note-text">Note</label>
+            <textarea id="note-text" placeholder="Write your note here... (Ctrl+Enter to save)"></textarea>
             <button class="save-button" onclick="addNote()">Save Note</button>
         </section>
+
+        <input type="text" class="search-box" placeholder="Search notes..." aria-label="Search notes" oninput="searchNotes(this.value)" style="margin-top:20px;max-width:320px">
 
         <section class="notes-grid" id="note-list"></section>
 
     </main>
 
     <script src="script.js"></script>
-    <script>showNotes();</script>
+    <script>
+        renderHeader("notes");
+        showNotes();
+    </script>
 </body>
 </html>

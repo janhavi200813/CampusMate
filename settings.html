@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - CampusMate</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header id="header"></header>
+
+    <main>
+
+        <section class="welcome">
+            <p class="small-text">YOUR ACCOUNT</p>
+            <h1>Settings ⚙️</h1>
+            <p>Change your name and back up your data.</p>
+        </section>
+
+        <section class="card settings-card" id="name-card">
+            <h2>Your name</h2>
+            <p>Shown on the dashboard greeting.</p>
+            <p class="form-error"></p>
+            <label class="label-small" for="name-input">Name</label>
+            <input type="text" class="field" id="name-input" placeholder="Your name">
+            <button class="save-button" onclick="saveName()">Save</button>
+        </section>
+
+        <section class="card settings-card">
+            <h2>Backup</h2>
+            <p>Your data is stored in this browser only. Download a backup file to keep it safe or move it to another computer.</p>
+            <div class="row-buttons">
+                <button class="save-button" onclick="exportData()">Download backup</button>
+                <button class="cancel-button" style="margin-left:0" onclick="document.getElementById('import-file').click()">Restore from file</button>
+                <input type="file" id="import-file" accept=".json" style="display:none" onchange="importData(event)">
+            </div>
+        </section>
+
+        <section class="card settings-card">
+            <h2>Reset</h2>
+            <p>Delete all classes, assignments, goals and notes from this browser.</p>
+            <button class="danger-button" onclick="resetData()">Delete all data</button>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        renderHeader("settings");
+        showSettings();
+    </script>
+</body>
+</html>
