@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goals - CampusMate</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">CampusMate</div>
+
+        <nav>
+            <a href="index.html">Dashboard</a>
+            <a href="timetable.html">Timetable</a>
+            <a href="assignments.html">Assignments</a>
+            <a href="notes.html">Notes</a>
+            <a href="goals.html" class="active">Goals</a>
+        </nav>
+
+        <div class="profile">J</div>
+    </header>
+
+
+    <main>
+
+        <section class="welcome">
+            <p class="small-text">STAY FOCUSED</p>
+            <h1>Goals 🎯</h1>
+            <p>Set small goals and tick them off as you finish.</p>
+        </section>
+
+        <section class="card">
+            <div class="add-row">
+                <input type="text" id="goal-input" placeholder="Write a goal, e.g. Revise Unit 2">
+                <button class="save-button" onclick="addGoal()">Add Goal</button>
+            </div>
+
+            <p class="progress-text" id="goal-progress-text"></p>
+            <div class="progress">
+                <div class="progress-bar" id="goal-progress-bar"></div>
+            </div>
+
+            <div id="goal-list"></div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+    <script>showGoals();</script>
+</body>
+</html>

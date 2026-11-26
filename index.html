@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CampusMate</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-
     <header>
         <div class="logo">CampusMate</div>
 
         <nav>
-             <a href="index.html">Dashboard</a>
-             <a href="#timetable.html">Timetable</a>
-             <a href="assignments.html">Assignments</a>
-             <a href="#">Notes</a>
-            <a href="#">Goals</a>
-
+            <a href="index.html" class="active">Dashboard</a>
+            <a href="timetable.html">Timetable</a>
+            <a href="assignments.html">Assignments</a>
+            <a href="notes.html">Notes</a>
+            <a href="goals.html">Goals</a>
         </nav>
 
         <div class="profile">J</div>
@@ -27,11 +27,9 @@
     <main>
 
         <section class="welcome">
-            <div>
-                <p class="small-text">GOOD MORNING 👋</p>
-                <h1>Welcome back, Janhavi!</h1>
-                <p>Here's what's happening with your college life today.</p>
-            </div>
+            <p class="small-text">WELCOME 👋</p>
+            <h1>Welcome back, Janhavi!</h1>
+            <p>Here's what's happening with your college life today.</p>
         </section>
 
 
@@ -39,20 +37,20 @@
 
             <div class="stat-card">
                 <span>📅</span>
-                <h3>3</h3>
+                <h3 id="classes-count">0</h3>
                 <p>Classes Today</p>
             </div>
 
             <div class="stat-card">
                 <span>📝</span>
-                <h3>5</h3>
+                <h3 id="pending-count">0</h3>
                 <p>Pending Assignments</p>
             </div>
 
             <div class="stat-card">
                 <span>🎯</span>
-                <h3>72%</h3>
-                <p>Study Progress</p>
+                <h3 id="progress-count">0%</h3>
+                <p>Goals Completed</p>
             </div>
 
         </section>
@@ -63,96 +61,33 @@
             <div class="card">
                 <div class="card-header">
                     <h2>📅 Today's Classes</h2>
-                    <a href="#">View all</a>
+                    <a href="timetable.html">View all</a>
                 </div>
-
-                <div class="class-item">
-                    <div class="time">10:00 AM</div>
-                    <div>
-                        <h3>Web Technology</h3>
-                        <p>Room 204</p>
-                    </div>
-                </div>
-
-                <div class="class-item">
-                    <div class="time">12:00 PM</div>
-                    <div>
-                        <h3>Computer Programming</h3>
-                        <p>Lab 1</p>
-                    </div>
-                </div>
-
-                <div class="class-item">
-                    <div class="time">2:00 PM</div>
-                    <div>
-                        <h3>Discrete Mathematics</h3>
-                        <p>Room 301</p>
-                    </div>
-                </div>
-
+                <div id="today-classes"></div>
             </div>
-
 
             <div class="card">
                 <div class="card-header">
                     <h2>📝 Assignments</h2>
-                    <a href="#">View all</a>
+                    <a href="assignments.html">View all</a>
                 </div>
-
-                <div class="assignment">
-                    <div>
-                        <h3>Web Technology</h3>
-                        <p>HTML & CSS Assignment</p>
-                    </div>
-                    <span class="due">Tomorrow</span>
-                </div>
-
-                <div class="assignment">
-                    <div>
-                        <h3>Discrete Mathematics</h3>
-                        <p>Set Theory Questions</p>
-                    </div>
-                    <span class="due">3 days</span>
-                </div>
-
-                <div class="assignment">
-                    <div>
-                        <h3>Computer Programming</h3>
-                        <p>C Programming Assignment</p>
-                    </div>
-                    <span class="due">5 days</span>
-                </div>
-
+                <div id="dash-assignments"></div>
             </div>
 
         </section>
 
 
         <section class="card goals">
-
             <div class="card-header">
-                <h2>🎯 Today's Goals</h2>
-                <a href="#">Manage goals</a>
+                <h2>🎯 Goals</h2>
+                <a href="goals.html">Manage goals</a>
             </div>
-
-            <div class="goal">
-                <input type="checkbox">
-                <span>Complete HTML practice</span>
-            </div>
-
-            <div class="goal">
-                <input type="checkbox">
-                <span>Study Discrete Mathematics</span>
-            </div>
-
-            <div class="goal">
-                <input type="checkbox">
-                <span>Finish Web Technology assignment</span>
-            </div>
-
+            <div id="dash-goals"></div>
         </section>
 
     </main>
 
+    <script src="script.js"></script>
+    <script>showDashboard();</script>
 </body>
 </html>

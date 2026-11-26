@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes - CampusMate</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">CampusMate</div>
+
+        <nav>
+            <a href="index.html">Dashboard</a>
+            <a href="timetable.html">Timetable</a>
+            <a href="assignments.html">Assignments</a>
+            <a href="notes.html" class="active">Notes</a>
+            <a href="goals.html">Goals</a>
+        </nav>
+
+        <div class="profile">J</div>
+    </header>
+
+
+    <main>
+
+        <section class="welcome">
+            <p class="small-text">WRITE IT DOWN</p>
+            <h1>Notes 🗒️</h1>
+            <p>Keep quick study notes in one place.</p>
+        </section>
+
+        <section class="card note-form">
+            <input type="text" id="note-title" placeholder="Note title">
+            <textarea id="note-text" placeholder="Write your note here..."></textarea>
+            <button class="save-button" onclick="addNote()">Save Note</button>
+        </section>
+
+        <section class="notes-grid" id="note-list"></section>
+
+    </main>
+
+    <script src="script.js"></script>
+    <script>showNotes();</script>
+</body>
+</html>
